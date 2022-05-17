@@ -1,0 +1,166 @@
+:root{
+    scroll-behavior: smooth;
+}
+body{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: #d3d3d3;
+    box-sizing: border-box;
+    margin:0;
+    padding: 0;
+}
+.container{
+    width: 90%;
+    max-width: 1200px;
+    margin:auto;
+    background-color: white;
+    min-height: 100vh;
+    line-height: 2em;
+}
+header, section, nav{
+    border-bottom: 1px solid #CCC;
+    padding: 10px 50px;
+}
+
+section{
+    min-height: 50vh;
+}
+
+header{
+    text-align: center;
+}
+
+table{
+    width: 100%;
+}
+
+a:any-link{ /* 1 */
+    color: yellow;
+}
+
+a:hover{ /* 1 */
+    color: maroon;
+}
+
+a:active{ /* 1 */
+    color: mediumorchid;
+}
+
+nav{
+    background-color: #9B0000;
+}
+
+nav div{ /* 2 */
+    display: inline-block;
+}
+
+tr:nth-child(4){ /* 3 */
+    display: none;
+}
+
+tr:nth-child(3n){ /* 4 */
+    background-color: grey;
+}
+
+tr:first-child{ /* 5 */
+    background-color: rgb(154, 99, 194);
+}
+
+section:first-child{/* 6 */
+    background-color: rgba(253, 214, 103, 0.2);
+}
+
+/* section:nth-child(2){/* 6 
+     background-color: #717171; 
+} */
+
+section:nth-child(3){/* 6 */
+    background-color: #c2c2c2;
+}
+
+#sobre{/* 7 */
+    color: #e29414;
+}
+
+#produtos{/* 7 */
+    color: #414d43;
+}
+
+#endereco{/* 7 */
+    color: peru;
+}
+
+td:not(tr:first-child td:nth-child(2)):nth-child(2)::before{ /* 8 */
+    content: 'R$ ';
+}
+
+a[href^="http"]{/* 9 */
+    color:red;
+}
+
+address p:first-child::before{ /* 10 */
+    content: 'Rua: ';
+}
+
+address p:nth-child(2)::before{ /* 11 */
+    content: 'Bairro: ';
+}
+
+address p:nth-child(3)::after{ /* 12 */
+    content: ' - Santa Catarina';
+}
+
+tr:not(tr:first-child):hover{ /* 13 */
+    background-color:blue;
+}
+
+address{
+    text-align: center;
+}
+
+img:only-child{
+    border: 1px solid black;
+}
+
+p:nth-last-of-type(2){
+    background-color: sienna;
+}
+
+tr:nth-last-child(2){
+    background-color: sienna;
+}
+
+h1 + p::first-letter{
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+::first-line{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+table{
+    border: 1px solid black;
+}
+
+/*s
+* 
+Para esta atividade, você não deve alterar absolutamente nada o arquivo HTML.
+
+1 - formate os links como achar mais apropriado em seus estados (link, visited, hover, active)
+2 - os links devem estar lado a lado (display:inline ou inline-block)
+3 - a pizza do cheff está em falta, esconda esta linha da tabela (display:none)
+4 - faça a tabela ser listrada com cores diferentes
+5 - a primeira linha da tabela (cabeçalho) deve ser com uma cor destaque
+6 - cada seção deve ter uma cor de fundod diferente
+7 - Títulos devem possui cores diferentes em cada seção. No entanto, os parágrafos das seções devem ser de cores iguais.
+8 - adicione "R$" nos preços das pizzas
+9 - links externos devem possuir uma cor ligeiramente diferente (começa com http)
+10 - adicione "Rua" antes do nome da rua "Maria Aparecida Barbosa"
+11 - adicione "bairro antes de "Campo Duna"
+12 - adicione "Santa Catarina" após o nome da cidade (Garopaba)
+13 - ao passar o cursor sobre cada linha da tabela, ela deve ser "iluminada" com outra cor (menos o cabeçalho). 
+	 Dica: combinação de pseudo classes
+14 - o texto do endereço deve ser centralizado
+15 - Desenvolva 3 exemplos de uso de pseudo-classes que não foram demonstradas pelo professor
+16 - Desenvolva 2 exemplos de pseudo-elementos que não foram demonstradas pelo professor
+*/
