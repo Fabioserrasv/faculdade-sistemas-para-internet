@@ -1,0 +1,42 @@
+@use "sass:list";
+
+$cores : black, white, yellow, lime;
+
+.nav{
+  background-color: nth($cores,1);
+  color: nth($cores, 2);
+  a{
+    &:any-link{
+      text-decoration: none;
+      color: nth($cores, 3);
+    }
+  
+    &:hover{
+      color: nth($cores, 4);
+    }
+  }
+}
+
+@function geraTitulo($index){
+  $return : (
+    index: $index,
+    size: $index - ($index )
+  );
+  @return $return
+}
+
+@for $i from 1 through 8 {
+  .titulo-#{$i}{
+    font-size: 30 - ($i+if($i>=6,10,0));
+  }
+}
+
+@mixin divCor($cor,$medida){
+  width: nth($medida,1);
+  height: nth($medida,2);
+  background-color: $cor;
+}
+
+div{
+  @include divCor(red, (100px,100px))
+}

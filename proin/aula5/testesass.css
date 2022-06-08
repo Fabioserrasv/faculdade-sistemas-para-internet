@@ -1,0 +1,63 @@
+@use "sass:list";
+.nav {
+  background-color: black;
+  color: white;
+}
+
+.nav a:-webkit-any-link {
+  text-decoration: none;
+  color: yellow;
+}
+
+.nav a:-moz-any-link {
+  text-decoration: none;
+  color: yellow;
+}
+
+.nav a:any-link {
+  text-decoration: none;
+  color: yellow;
+}
+
+.nav a:hover {
+  color: lime;
+}
+
+.titulo-1 {
+  font-size: 29;
+}
+
+.titulo-2 {
+  font-size: 28;
+}
+
+.titulo-3 {
+  font-size: 27;
+}
+
+.titulo-4 {
+  font-size: 26;
+}
+
+.titulo-5 {
+  font-size: 25;
+}
+
+.titulo-6 {
+  font-size: 14;
+}
+
+.titulo-7 {
+  font-size: 13;
+}
+
+.titulo-8 {
+  font-size: 12;
+}
+
+div {
+  width: 100px;
+  height: 100px;
+  background-color: red;
+}
+/*# sourceMappingURL=testesass.css.map */

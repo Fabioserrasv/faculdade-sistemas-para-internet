@@ -1,0 +1,62 @@
+<input type="text" name="" id="b"/>
+<button id="a">confirma</button>
+
+<textarea id="response"></textarea>
+
+<style>
+  body{
+    background-color: black;
+  }
+
+  #c{
+    display: flex;
+    width: 800px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    border: 2px solid white;
+  }
+
+  #c div{
+    margin: 20px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+  }
+
+  h5{
+    color:white;
+  }
+
+</style>
+
+<div id="c"></div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script><script>
+  $('#a').on('click', ()=>{
+    $('#c').html('')
+    $.get(
+      'https://staging.animethemes.moe/api/search?q='+$('#b').val()+'&page[limit]=80', (response) => {
+      //const jsonObject = JSON.parse(response)
+      const searchObject = response["search"]
+      const videos = searchObject["videos"]
+      console.log(response)
+      console.log(videos)
+
+      $('#response').val(videos.lenght)
+
+      videos.forEach((video) => {
+        $('#c').append(
+          '<div id="'+video.id+'">'+
+            '<iframe src="'+video.link+'" autoplay="false"></iframe>'+
+            '<h5>'+video.basename+'</h5>'+
+            '<input type="checkbox">'+  
+          '</div>'
+        )
+      })
+
+
+    })
+  })
+</script>

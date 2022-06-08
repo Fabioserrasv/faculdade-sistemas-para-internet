@@ -1,0 +1,29 @@
+
+
+div:not(.container){
+  width: 150px;
+  height: 150px;
+  margin: 20px;
+  display: inline-block;
+}
+
+.box1{
+  background-color: red;
+}
+
+.box2{
+  background-color: green;
+}
+
+.box3{
+  background-color: blue;
+  position: absolute;
+  right: calc(50% - 410px);
+  top: calc(0vh)
+}
+
+.container{
+  width: 800px;
+  border: 5px solid black;
+  margin: auto;
+}
