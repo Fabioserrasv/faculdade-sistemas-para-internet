@@ -1,21 +1,20 @@
-import numpy as np
+def partition(l, r, nums):
+  # Last element will be the pivot and the first element the pointer
+  pivot, ptr = nums[r], l
+  for i in range(l, r):
+      if nums[i] <= pivot:
+          # Swapping values smaller than the pivot to the front
+          nums[i], nums[ptr] = nums[ptr], nums[i]
+          ptr += 1
+  # Finally swapping the last element with the pointer indexed number
+  nums[ptr], nums[r] = nums[r], nums[ptr]
+  return ptr
 
-def particao(vetor, inicio ,final) :
-  pivo = vetor[final]
-  i = inicio - 1
-
-  for j in range (inicio,final):
-    if vetor [ j ] <= pivo :
-      i += 1
-      vetor[i],vetor[j] = vetor[j],vetor[i]
-  vetor[i + 1], vetor[final] = vetor[final], vetor[i + 1]
-  return i + 1
-
-def quick_sort(vetor, inicio, final) :
-  if inicio < final:
-    posicao = particao(vetor, inicio, final)
-    # Esquerda
-    quick_sort(vetor, inicio, posicao - 1)
-    # Direito
-    quick_sort(vetor, posicao + 1, final)
-  return vetor
+def quick_sort(nums, r, l):
+  if len(nums) == 1:  # Terminating Condition for recursion. VERY IMPORTANT!
+      return nums
+  if l < r:
+      pi = partition(l, r, nums)
+      quick_sort(l, pi-1, nums)  # Recursively sorting the left values
+      quick_sort(pi+1, r, nums)  # Recursively sorting the right values
+  return nums

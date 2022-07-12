@@ -1,19 +1,14 @@
-import numpy as np
+def shell_sort(inp):
+  n = len(inp)
+  h = n // 2
+  while h > 0:
+      for i in range(h, n):
+          t = inp[i]
+          j = i
+          while j >= h and inp[j - h] > t:
+              inp[j] = inp[j - h]
+              j -= h
 
-
-def shell_sort(vetor):
-  intervalo = len(vetor) // 2
-
-  while intervalo > 0:
-    for i in range(intervalo, len(vetor)):
-      temp = vetor[i]
-      j = i
-    while j >= intervalo and vetor[j - intervalo] > temp:
-      vetor[j] = vetor[j - intervalo]
-      j -= intervalo
-    vetor[j] = temp
-  intervalo //= 2
-
-  return vetor
-
-shell_sort([1,5,6,2])
+          inp[j] = t
+      h = h // 2
+  return inp
