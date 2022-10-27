@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="content">
+    <h1>Cadastro Pessoa</h1>
+    <form>
+      <fieldset>
+        <legend>Dados</legend>
+
+        <label for="nome">Nome</label>
+        <input type="text" id="nome" name="nome" placeholder="Digite o Nome..." autocomplete="off">
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="Digite o Email..." autocomplete="off">
+
+      </fieldset>
+
+      <fieldset>
+        <legend>Endereço</legend>
+
+        <label for="cep">CEP</label>
+        <input type="text" id="cep" name="cep" placeholder="Digite o Cep..." autocomplete="off">
+
+        <label for="uf">Estado</label>
+        <input type="text" id="uf" name="uf" placeholder="Digite o Estado..." autocomplete="off">
+
+        <label for="cidade">Cidade</label>
+        <input type="text" id="cidade" name="cidade" placeholder="Digite a Cidade..." autocomplete="off">
+
+        <label for="rua">Rua</label>
+        <input type="text" id="rua" name="rua" placeholder="Digite a Rua..." autocomplete="off">
+
+      </fieldset>
+
+      <button id="envia">Enviar</button>
+    </form>
+  </div>
+</body>
+
+</html>

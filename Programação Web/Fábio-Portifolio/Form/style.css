@@ -1,0 +1,60 @@
+body {
+  background-color: #4281A4;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+form fieldset {
+  text-align: center;
+}
+form fieldset label, form fieldset input {
+  padding-top: 20px;
+}
+form label {
+  font-weight: bolder;
+}
+form input {
+  background-color: transparent;
+  border: 0;
+  border-bottom: 1px solid #e6b89c;
+  color: white;
+}
+form input:focus {
+  box-shadow: 0;
+  outline: none;
+}
+form ::-moz-placeholder {
+  color: #9CAFB7;
+}
+form :-ms-input-placeholder {
+  color: #9CAFB7;
+}
+form ::placeholder {
+  color: #9CAFB7;
+}
+form button {
+  margin-top: 10px;
+  float: right;
+}
+
+button {
+  box-shadow: 0 2px 2px 0 rgba(64, 132, 199, 0.14), 0 3px 1px -2px rgba(64, 132, 199, 0.2), 0 1px 5px 0 rgba(64, 132, 199, 0.12);
+  background-color: #fe938c;
+  background-color: #fe938c;
+  border-radius: 0.2%;
+  padding: 12px 30px;
+  font-size: 0.75em;
+  font-weight: 400;
+  line-height: 1.4;
+  text-decoration: none;
+  text-transform: uppercase;
+  border: 0;
+  border-radius: 0.2rem;
+  cursor: pointer;
+}/*# sourceMappingURL=style.css.map */

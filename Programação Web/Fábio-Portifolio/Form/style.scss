@@ -1,0 +1,64 @@
+$cores : #fe938c, #e6b89c, #ead2ac, #9CAFB7, #4281A4;
+
+body{
+  background-color: nth($cores, 5);
+}
+
+.content{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+form{
+  fieldset{
+    text-align: center;
+
+    label, input{
+      padding-top: 20px;
+    }
+  }
+
+  label{
+    font-weight: bolder;
+  }
+
+  input{
+    background-color: transparent;
+    border: 0;
+    border-bottom: 1px solid nth($cores, 2);
+    color: white;
+  }
+
+  input:focus {
+    box-shadow: 0;
+    outline: none;
+  }
+
+  ::placeholder{
+    color: nth($cores, 4);
+  }
+
+  button{
+    margin-top: 10px;
+    float: right;
+  }
+}
+
+button {
+  box-shadow: 0 2px 2px 0 rgb(64 132 199 / 14%), 0 3px 1px -2px rgb(64 132 199 / 20%), 0 1px 5px 0 rgb(64 132 199 / 12%);
+  background-color: nth($cores,1);
+  background-color: nth($cores,1);
+  border-radius: 0.2%;
+  padding: 12px 30px;
+  font-size: .75em;
+  font-weight: 400;
+  line-height: 1.4;
+  text-decoration: none;
+  text-transform: uppercase;
+  border: 0;
+  border-radius: 0.2rem;
+  cursor: pointer;
+}

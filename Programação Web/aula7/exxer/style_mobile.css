@@ -1,0 +1,93 @@
+:root{
+  --color-1: #8ED081;
+  --color-2: #b4d2ba;
+  --color-3: #dce2aa;
+  --color-4: #b57f50;
+  --color-5: #4b543b;
+}
+body{
+  background-color: var(--color-5);
+  margin: 0;
+  padding: 0;
+}
+
+.container{
+  padding-bottom: 100px;
+}
+
+/* HEADER */
+header{
+  background-color: var(--color-4);
+  text-align: center;
+  padding: 20px 0 20px 0;
+}
+/* NAV */
+nav{
+  background-color: var(--color-4);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+nav ul{
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-around;
+}
+
+nav li{
+  list-style-type: none;
+  padding: 15px;
+}
+
+nav a:any-link{
+  color: white;
+  font-weight: bold;
+}
+
+/* MAIN */
+
+main{
+  background-color: var(--color-2);
+  padding-inline: 15px;
+  box-sizing: border-box;
+}
+
+main div{
+  border-bottom: 7px dotted var(--color-3);
+}
+
+main p{
+  text-align: justify;
+  line-height: 1.3em;
+}
+
+/* ASIDE */
+
+aside{
+  background-color: var(--color-3);
+  padding-inline: 15px;
+  box-sizing: border-box;
+}
+
+/* FOOTER */
+
+footer{
+  background-color: var(--color-1);
+  padding: 20px 0 20px 0;
+}
+
+img{
+  max-width: 100%;
+}
+
+*{
+  word-wrap: break-word;
+}
+
+h1{
+  margin: 0;
+  padding: 0;
+}

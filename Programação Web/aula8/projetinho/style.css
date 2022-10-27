@@ -1,0 +1,92 @@
+:root{
+ --color-1: #ccd5ae;
+ --color-2: #e9edc9;
+ --color-3: #fefae0;
+ --color-4: #faedcd;
+ --color-5: #d4a373;
+}
+
+body{
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  background-color: var(--color-4);
+  padding: 0;
+  margin:0;
+}
+
+.container{
+  width: 95vw;
+  margin: auto;
+  display: grid;
+  grid-template-rows: repeat(4, auto);
+  /* border: 1px solid black;
+  border-radius: 1%; */
+}
+
+.container > *{
+  /* border: 1px solid black; */
+  padding: 20px;
+  border-bottom: 1px solid black;
+}
+
+header{
+  height: 80vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "texto imagem";
+  background-color: var(--color-1);
+  border-top-right-radius: 2%;
+  border-top-left-radius: 2%;
+}
+
+.texto-header{
+  padding: 30% 0 0 20%;
+}
+
+header img{
+  height: 400px;
+  grid-area: imagem;
+  padding: 15% 0 0 20%;
+}
+
+.info{
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  grid-template-rows: repeat(3,auto);
+  background-color: var(--color-5);
+}
+
+.info > *{
+  width: 400px;
+}
+
+.descarte{
+  grid-row-start: 1;
+  grid-row-end: 3;
+  padding-left: 200px;
+}
+
+.legislacao{
+  grid-row-start: 2;
+  grid-row-end: 4;
+}
+
+.galeria{
+  text-align: center;
+  background-color: var(--color-1);
+}
+
+.galeria div img{
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  padding-inline: 40px;
+}
+
+.galeria div{
+  text-align: center;
+}
+
+footer{
+  text-align: center;
+  background-color: var(--color-5);
+}

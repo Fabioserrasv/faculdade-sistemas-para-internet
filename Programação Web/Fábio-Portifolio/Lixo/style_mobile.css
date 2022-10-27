@@ -1,0 +1,45 @@
+.container{
+  width: 80vw;
+  margin: 0;
+}
+
+header{
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(2, auto);
+  grid-template-areas: "imagem" "texto";
+}
+
+.texto-header{  
+  width: 100%;
+  padding: 0;
+  text-align: center;
+}
+
+header img{
+  padding: 0;
+  grid-area: imagem;
+}
+
+.info{
+  grid-template-columns: 1fr;
+  grid-template-rows: none;
+  grid-template-rows: auto, auto;
+}
+
+.info > *{
+  margin: auto;
+}
+
+.descarte{
+  grid-row-start: 1 !important;
+  grid-row-end: none;
+  padding: 0;
+}
+
+.legislacao{
+  grid-row-start: 2 !important;
+  grid-row-end: none;
+
+}
