@@ -1,10 +1,12 @@
 from neighbours import Neighbour
 from vertex import Vertex
+from stack import Stack
 
 class Graph:
   def __init__(self) -> None:
     self.__vertexes = {}
     self.__visited_array = {}
+    self.__result_dfs = []
 
   def add_vertex(self, name):
     if not self.__vertexes.get(name, None):
@@ -28,6 +30,37 @@ class Graph:
   def get_vertex(self, name):
     return self.__vertexes.get(name, None)
   
+  # def search_dfs_pilha_aux(self, vertex):
+
+  def search_dfs_pilha(self, vertex):
+    self.__visited_array[vertex.name] = True
+    my_stack = Stack(len(self.__vertexes))
+
+    for n in vertex.get_neighbours():
+      my_stack.push(n)
+      self.search_dfs_pilha_aux(n)
+      
+  def search_dfs_aux(self, ne: Vertex):
+    ns = ne.get_neighbours()
+    if ns:
+      for n in ns:
+        if n.vertex.name in self.__visited_array:
+          continue
+
+        self.__visited_array[n.vertex.name] = True
+        self.__result_dfs.append(n.vertex.name)
+        if len(n.vertex.get_neighbours()) > 0:
+          self.search_dfs_aux(n.vertex)
+      
+  def search_dfs(self):
+    pointer = list(self.__vertexes)[0]
+    self.__visited_array[pointer] = True
+    
+    self.search_dfs_aux(self.__vertexes[pointer])
+
+    return self.__result_dfs
+
+
   def search_node(self, vertex_from, vertex_to):
     if vertex_from.name in self.__visited_array:
       return None

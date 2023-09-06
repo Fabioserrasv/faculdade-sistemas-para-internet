@@ -163,4 +163,6 @@ for city in cities:
             neighbour.get("weight")
         )
 
-print(my_graph.search("Arad", "Bucharest"))
+# print(my_graph.search("Arad", "Bucharest"))
+
+print(my_graph.search_dfs())
