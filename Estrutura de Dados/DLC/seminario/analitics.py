@@ -20,17 +20,22 @@ def execute_single_board(heuristic, show_path):
     Time: {time}
   """)
 
-def execute_all_heuristics_and_analysis(amount_tests):
+def execute_all_heuristics_and_analysis(amount_tests, graph_type):
   results = []
   matrixes = []
-  colors = [[]] * amount_tests
-  for y in range(amount_tests):
+  colors = [[]] * (amount_tests + len(heuristics))
+  
+  for y in range(amount_tests + len(heuristics)):
     initial_matrix = generate_initial_matrix(MOVEMENTS=1000)
     matrixes.append(initial_matrix)
     colors[y] = [random.random() for _ in range(3)]
+  ic = 0
   for index, heuristic in heuristics.items():
     for j in range(amount_tests):
-      color = colors[j]
+      if graph_type == 1:
+        color = colors[j]
+      else:
+        color = colors[ic]
       initial_board = Board(matrixes[j], None, heuristic)
       path, movements, time = a_star_8_puzzle(initial_board)
 
@@ -41,6 +46,7 @@ def execute_all_heuristics_and_analysis(amount_tests):
         "time": time,
         "color": color
       })
+    ic += 1;
 
   results.sort(key=lambda x: x["time"])
 

@@ -23,7 +23,8 @@ while op != 0:
 
   if op == len(heuristics) + 1:
     amount_tests = int(input("Number of tests:"))
-    execute_all_heuristics_and_analysis(amount_tests)
+    graph_type = int(input("Graph type:  0(Color by Heuristic) / 1(Color by Border)"))
+    execute_all_heuristics_and_analysis(amount_tests, graph_type)
 
   if op > 0 and op <= len(heuristics):
     print(f"Selected {options[op-1][0]}")
