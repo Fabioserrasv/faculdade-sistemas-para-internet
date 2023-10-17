@@ -1,28 +1,37 @@
-from heuristics import manhattan, out_of_place
-from board import Board
-from utils import generate_initial_matrix
-from astar import a_star_8_puzzle
+from heuristics import heuristics
+from analitics import execute_all_heuristics_and_analysis, execute_single_board
 import sys
 
 sys.setrecursionlimit(2000)
 
-heuristic = out_of_place
-# heuristic = manhattan
+def show_options():
+    print("====================")
+    i = 1
+    for index in heuristics:
+      print(i, "-", index)
+      i += 1;
+    print(i, "-", "Execute all and analyze")
+    print("0", "-", "Quit")
+    print("====================")
 
+op = 999
+options = list(heuristics.items())
 
-def main(board):
-  pass
+while op != 0:
+  show_options()
+  op = int(input("Choose option:"))
 
-initial_matrix = generate_initial_matrix(MOVEMENTS=1000)
+  if op == len(heuristics) + 1:
+    amount_tests = int(input("Number of tests:"))
+    execute_all_heuristics_and_analysis(amount_tests)
 
-initial_matrix = [[7, 2, 4],
-              [6, 5, 3],
-              [8, 1, 0]]
-
-initial_board = Board(
-  initial_matrix
-, None, heuristic)
-
-a_star_8_puzzle(initial_board)
-print(initial_matrix)
-# print(get_possible_boards(input))
+  if op > 0 and op <= len(heuristics):
+    print(f"Selected {options[op-1][0]}")
+    show_path = int(input("Show path? 1(yes) / 0(No)"))
+    show_path = True if show_path == 1 else False
+    heuristic = options[op-1][1]
+    execute_single_board(heuristic, show_path) 
+  elif op == 0:
+    print("Bye~~")
+  else:
+    print("Option not found.")

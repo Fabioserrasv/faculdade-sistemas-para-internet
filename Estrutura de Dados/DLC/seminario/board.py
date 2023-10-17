@@ -54,13 +54,13 @@ class Board:
       if newCol >= 3 or newCol < 0:
         continue
 
-      new_board = copy.deepcopy(self.__matrix)
+      new_matrix = copy.deepcopy(self.__matrix)
       
-      aux = new_board[positionRow][positionCol]
-      new_board[positionRow][positionCol] = new_board[newRow][newCol]
-      new_board[newRow][newCol] = aux
+      aux = new_matrix[positionRow][positionCol]
+      new_matrix[positionRow][positionCol] = new_matrix[newRow][newCol]
+      new_matrix[newRow][newCol] = aux
 
-      new_possibility_board = Board(new_board, self, self.__heuristic) 
+      new_possibility_board = Board(new_matrix, self, self.__heuristic) 
       possibilities.append(new_possibility_board)
     return possibilities
   
@@ -71,7 +71,7 @@ class Board:
     result.append(self.__matrix)
     return result
 
-  def __eq__(self, board: "Board"):
+  def __eq__(self, board):
     if not isinstance(board, Board):
       return False
 

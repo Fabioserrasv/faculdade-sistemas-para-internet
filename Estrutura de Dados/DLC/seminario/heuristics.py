@@ -2,12 +2,12 @@ from utils import get_index_from_final_board
 
 def manhattan(board):
   value = 0
-  for rowIndex, row in enumerate(board):
-    for colIndex, cell in enumerate(row):
+  for board_row, row in enumerate(board):
+    for board_col, cell in enumerate(row):
       if cell == 0:
         continue
       finalRow, finalCol = get_index_from_final_board(cell)
-      value += abs(rowIndex - finalRow) + abs(colIndex - finalCol)
+      value += abs(board_row - finalRow) + abs(board_col - finalCol)
   return value
 
 def out_of_place(board):
@@ -23,21 +23,21 @@ def out_of_place(board):
   return value
 
 def linear_conflict(board):
-  # Calcula a heurística de Distância Linear Conflict
   distance = manhattan(board)
-  for i in range(3):
-    for j in range(3):
-      if board[i][j] != 0:
-        finalRow, finalCol = get_index_from_final_board(board[i][j])
-        print(board[i][j])
-        if i == finalRow:
-          for k in range(j + 1, 3):
-            if board[i][k] != 0 and divmod(board[i][k] - 1, 3)[0] == i and board[i][j] > board[i][k]:
-              distance += 2  # Conflito linear
-        if j == finalCol:
-          for k in range(i + 1, 3):
-            if board[k][j] != 0 and divmod(board[k][j] - 1, 3)[1] == j and board[i][j] > board[k][j]:
-              distance += 2  # Conflito linear
+  for board_row, row in enumerate(board):
+    for board_col, cell in enumerate(row):
+      if cell != 0:
+        finalRow, finalCol = get_index_from_final_board(cell)
+        if board_row == finalRow:
+          for k in range(board_col + 1, 3):
+            k_final_row, k_final_col = get_index_from_final_board(board[board_row][k])
+            if board[board_row][k] != 0 and k_final_row == board_row and cell > board[board_row][k]:
+              distance += 2
+        if board_col == finalCol:
+          for k in range(board_row + 1, 3):
+            k_final_row, k_final_col = get_index_from_final_board(board[k][board_col])
+            if board[k][board_col] != 0 and k_final_col == board_col and cell > board[k][board_col]:
+              distance += 2
   return distance
 
 heuristics = {

@@ -1,11 +1,12 @@
 from ordened_vector import OrderedVector
-from utils import print_matrix, compare_board, FINAL_BOARD
+from utils import compare_board, FINAL_BOARD
+import timeit
 
 def a_star_8_puzzle(board):
+  start = timeit.default_timer()
   visited_boards = []
   v = OrderedVector(10000, compare_board)
   v.insert(board)
-
   while len(v) > 0:
     current_board = v.pop(0)
     visited_boards.append(current_board)
@@ -23,7 +24,6 @@ def a_star_8_puzzle(board):
     return None
 
   path = current_board.path()
-  return path
-  # for b in path:
-  #   print_matrix(b)
-  # print("Realizado em", len(path), "movimentos")
+  end = timeit.default_timer()
+  return path, len(path), (end - start)
+  

@@ -1,6 +1,12 @@
 import random
-from config import FINAL_BOARD_MATRIX
 from board import Board
+
+FINAL_BOARD_MATRIX = [
+  [1,2,3],
+  [4,5,6],
+  [7,8,0]
+]
+
 FINAL_BOARD = Board(FINAL_BOARD_MATRIX, None)
 
 def get_index_from_final_board(item: int):
