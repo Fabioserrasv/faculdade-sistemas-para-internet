@@ -1,4 +1,4 @@
-from products import products
+from products import productsaaa as products
 import itertools
 import timeit as time
 
