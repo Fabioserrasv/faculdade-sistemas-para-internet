@@ -1,3 +1,3 @@
 from genetic_algo import GeneticAlgorithm
 
-print(GeneticAlgorithm(20, 10))
+GeneticAlgorithm(20, 100)
