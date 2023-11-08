@@ -5,10 +5,11 @@ from utils import compare, revert
 import random
 import math
 
-BAG_VOLUME = 10
+BAG_VOLUME = 5
 
 class GeneticAlgorithm:
-  def __init__(self, population_length, amount_generation) -> None:
+  @staticmethod
+  def execute(population_length, amount_generation):
     individuals = OrderedVector(population_length * amount_generation, revert(compare))
     best_individuals = OrderedVector(amount_generation + 1, revert(compare))
     
@@ -18,9 +19,10 @@ class GeneticAlgorithm:
     for i in range(amount_generation):
       best_individuals.insert(individuals.get(0))
       child_individuals = OrderedVector(population_length * amount_generation, revert(compare))
-      population_score = self.get_population_sum(individuals)
-      new_individuals = self.get_new_random_population(individuals, population_score)
-      
+
+      population_score = GeneticAlgorithm.get_population_sum(individuals)
+      new_individuals = GeneticAlgorithm.get_new_random_population(individuals, population_score)
+
       for y in range(population_length // 2):
         index = y
         index2 = y+1
@@ -32,23 +34,23 @@ class GeneticAlgorithm:
         child_individuals.insert(f1)
         child_individuals.insert(f2)
       individuals = child_individuals
-    print(self.russian_roullete(individuals, self.get_population_sum(individuals)))
-    
-  
-  def get_population_sum(self, population):
-    return sum([x.get_solution_rating() for x in population])
+    return best_individuals
 
-  def russian_roullete(self, population, population_score):
+  @staticmethod
+  def get_population_sum(population):
+    return sum([x.get_solution_rating() for x in population])
+  
+  @staticmethod
+  def russian_roullete(population, population_score):
     random_value = random.randrange(0,math.floor(population_score))
     sum = 0
-    for x in range(len(population) -1 , -1, -1):
-      i = population.get(x)
+    for i in population:
       if sum + i.get_solution_rating() >= random_value:
         return i
-      sum += i.get_solution_rating();
+      sum += i.get_solution_rating()
     
-  def get_new_random_population(self, population, population_score):
+  def get_new_random_population(population, population_score):
     return [
-      self.russian_roullete(population, population_score)
+      GeneticAlgorithm.russian_roullete(population, population_score)
       for _ in range(len(population))
     ]
