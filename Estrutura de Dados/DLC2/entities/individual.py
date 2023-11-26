@@ -1,11 +1,11 @@
 import random
-
 zero_or_one = lambda _x: random.choice([0, 1])
 
 class Individual:
-  def __init__(self, items, limit, generation = 0, chromossomes = None) -> None:
+  def __init__(self, items, limit, generation = 0, mutation_rate = 5, chromossomes = None) -> None:
     self.__items = items
     self.__limit = limit
+    self.__mutation_rate = mutation_rate
     self.__generation = generation
     self.__value = 0
     self.__volume = 0
@@ -49,18 +49,19 @@ class Individual:
       self.__items,
       self.__limit,
       self.__generation + 1,
+      self.__mutation_rate,
       c1
     ), Individual(
       self.__items,
       self.__limit,
       self.__generation + 1,
+      self.__mutation_rate,
       c2
     )
 
   def mutation(self, chromossomes):
-    mutation_rate = 5
     for i in range(len(chromossomes)):
-      if random.randrange(0, 100) < mutation_rate:
+      if random.randrange(0, 1000) < self.__mutation_rate:
         chromossomes[i] = 0 if chromossomes[i] == 1 else 1
     return chromossomes
 

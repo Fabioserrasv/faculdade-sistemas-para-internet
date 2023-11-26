@@ -71,46 +71,46 @@ productsaaa = [
     "l": 3.24,
     "price": 4.5
   },
-  {
-    "name": "Novo 1",
-    "l": 3.54,
-    "price": 2.5
-  },
-  {
-    "name": "Novo 2",
-    "l": 3.241,
-    "price": 4.54
-  },
-  {
-    "name": "Novo 3",
-    "l": 3.54132,
-    "price": 2.55
-  },
-  {
-    "name": "Novo 4",
-    "l": 2.24177,
-    "price": 1.54
-  },
-  {
-    "name": "Novo 5",
-    "l": 4.24177,
-    "price": 1.54
-  },
-  {
-    "name": "Novo 6",
-    "l": 3.24177,
-    "price": 1.54
-  },
-  {
-    "name": "Novo 7",
-    "l": 1.24177,
-    "price": 1.54
-  },
-  {
-    "name": "Novo 8",
-    "l": 2.5,
-    "price": 1.54
-  },
+  # {
+  #   "name": "Novo 1",
+  #   "l": 3.54,
+  #   "price": 2.5
+  # },
+  # {
+  #   "name": "Novo 2",
+  #   "l": 3.241,
+  #   "price": 4.54
+  # },
+  # {
+  #   "name": "Novo 3",
+  #   "l": 3.54132,
+  #   "price": 2.55
+  # },
+  # {
+  #   "name": "Novo 4",
+  #   "l": 2.24177,
+  #   "price": 1.54
+  # },
+  # {
+  #   "name": "Novo 5",
+  #   "l": 4.24177,
+  #   "price": 1.54
+  # },
+  # {
+  #   "name": "Novo 6",
+  #   "l": 3.24177,
+  #   "price": 1.54
+  # },
+  # {
+  #   "name": "Novo 7",
+  #   "l": 1.24177,
+  #   "price": 1.54
+  # },
+  # {
+  #   "name": "Novo 8",
+  #   "l": 5,
+  #   "price": 2.54
+  # },
 ]
 
 products = [ Item(x["name"], x["price"], x["l"]) for x in productsaaa ]

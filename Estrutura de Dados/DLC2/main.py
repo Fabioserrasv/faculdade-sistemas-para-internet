@@ -1,8 +1,6 @@
 from genetic_algo import GeneticAlgorithm
+from analitics import Analysis
 
-result = GeneticAlgorithm.execute(50, 600)
+# result = GeneticAlgorithm.execute(50, 600)
 
-print(result.pop(0))
-
-# for i in result:
-#   print(i)
+Analysis.execute_analysis();

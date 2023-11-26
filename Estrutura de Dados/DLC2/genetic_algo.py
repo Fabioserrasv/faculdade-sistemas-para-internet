@@ -1,23 +1,22 @@
 from entities.individual import Individual
-from products import products
-from ordened_vector import OrderedVector
+from entities.products import products
+from entities.ordened_vector import OrderedVector
 from utils import compare, revert
 import random
 import math
 
-BAG_VOLUME = 5
-
 class GeneticAlgorithm:
   @staticmethod
-  def execute(population_length, amount_generation):
+  def execute(population_length, amount_generation, bag_volume, mutation_rate):
     individuals = OrderedVector(population_length * amount_generation, revert(compare))
-    best_individuals = OrderedVector(amount_generation + 1, revert(compare))
+    best_individuals = []
     
     for x in range(population_length):
-      individuals.insert(Individual(products, BAG_VOLUME, 0))
+      individuals.insert(Individual(products, bag_volume, 0, mutation_rate))
     
     for i in range(amount_generation):
-      best_individuals.insert(individuals.get(0))
+      # best_individuals.insert(individuals.get(0))
+      best_individuals.append(individuals.get(0))
       child_individuals = OrderedVector(population_length * amount_generation, revert(compare))
 
       population_score = GeneticAlgorithm.get_population_sum(individuals)
@@ -34,7 +33,11 @@ class GeneticAlgorithm:
         child_individuals.insert(f1)
         child_individuals.insert(f2)
       individuals = child_individuals
-    return best_individuals
+    best = best_individuals[0]
+    for i in best_individuals:
+      if i.get_solution_rating() > best.get_solution_rating():
+        best = i
+    return best_individuals, best
 
   @staticmethod
   def get_population_sum(population):
