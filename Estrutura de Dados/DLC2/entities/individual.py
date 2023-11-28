@@ -42,8 +42,8 @@ class Individual:
     return self.__score
 
   def crossover(self, other_individual):
-    c1,c2 = self.__random_point(other_individual) # SORTEADO PONTO
-    # c1,c2 = self.__four_points(other_individual) # 4 PONTOS
+    # c1,c2 = self.__random_point(other_individual) # SORTEADO PONTO
+    c1,c2 = self.__four_points(other_individual) # 4 PONTOS
     
     return Individual(
       self.__items,
@@ -85,7 +85,7 @@ class Individual:
   def __four_points(self, other_individual):
     points = sorted(random.sample(range(len(self.__items)), 4))
     chromossomes2 = other_individual.get_chromossomes()
-
+    print(points)
     c1 = self.mutation(self.__chromossomes[:points[0]] +
                        chromossomes2[points[0]:points[1]] +
                        self.__chromossomes[points[1]:points[2]] +

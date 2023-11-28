@@ -4,10 +4,10 @@ from config import POPULATION_LENGTH, GENERATIONS, BAG_VOLUME, MUTATION_RATE
 
 DATA_TESTS = [
   # BAG_VOLUME, MUTATION_RATE, POPULATION_LENGTH, GENERATION
-  [20, 2, 100, 200],
-  [20, 5, 100, 200],
-  [20, 10, 100, 200],
-  [20, 50, 100, 200],
+  [20, 2, 300, 200],
+  [20, 5, 300, 200],
+  [20, 10, 300, 200],
+  [20, 50, 300, 200],
 ]
 
 class Analysis:
@@ -23,12 +23,12 @@ class Analysis:
       generations = data[3]
 
       result, best = GeneticAlgorithm.execute(population_length, generations, bag_volume, mutation_rate)
-      print(f"Test {col}:\nValor: {best.get_solution_rating()}\nPeso:{best.solution_volume()}")
+      print(f"--------------------------\nTest {col}:\nValor: {best.get_solution_rating()}\nPeso: {best.solution_volume()}")
       axes[col].plot(
         [x for x in range(len(result))],
         [i.get_solution_rating() for i in result]
       )
-  
+      axes[col].set_title(f"Valor: {best.get_solution_rating()}\nPeso: {best.solution_volume()}")
     plt.show()
   
   @staticmethod

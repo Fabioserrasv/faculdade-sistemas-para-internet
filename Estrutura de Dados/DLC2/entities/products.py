@@ -112,5 +112,5 @@ productsaaa = [
     "price": 2.54
   },
 ]
-
+print(f"--------------------------\nQuantidade de produtos: {len(productsaaa)}")
 products = [ Item(x["name"], x["price"], x["l"]) for x in productsaaa ]
