@@ -23,7 +23,7 @@ class Analysis:
       generations = data[3]
 
       result, best = GeneticAlgorithm.execute(population_length, generations, bag_volume, mutation_rate)
-
+      print(f"Test {col}:\nValor: {best.get_solution_rating()}\nPeso:{best.solution_volume()}")
       axes[col].plot(
         [x for x in range(len(result))],
         [i.get_solution_rating() for i in result]

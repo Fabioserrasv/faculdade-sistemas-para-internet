@@ -31,6 +31,9 @@ class Individual:
         self.__value += self.__items[index].get_value()
         self.__volume += self.__items[index].get_volume()
 
+  def solution_volume(self):
+    return self.__volume
+
   def get_solution_rating(self):
     if self.__volume > self.__limit:
       return self.__score
@@ -39,12 +42,9 @@ class Individual:
     return self.__score
 
   def crossover(self, other_individual):
-    crossover_point = random.randrange(0, len(self.__items), 1)
-    chromossomes2 = other_individual.get_chromossomes()
-
-    c1 = self.mutation(self.__chromossomes[:crossover_point] + chromossomes2[crossover_point:])
-    c2 = self.mutation(chromossomes2[:crossover_point] + self.__chromossomes[crossover_point:])
-
+    c1,c2 = self.__random_point(other_individual) # SORTEADO PONTO
+    # c1,c2 = self.__four_points(other_individual) # 4 PONTOS
+    
     return Individual(
       self.__items,
       self.__limit,
@@ -61,7 +61,7 @@ class Individual:
 
   def mutation(self, chromossomes):
     for i in range(len(chromossomes)):
-      if random.randrange(0, 1000) < self.__mutation_rate:
+      if random.randrange(0, 100) < self.__mutation_rate:
         chromossomes[i] = 0 if chromossomes[i] == 1 else 1
     return chromossomes
 
@@ -73,4 +73,29 @@ class Individual:
       return False
     return self.__score == individual.get_solution_rating();
 
-  # def rate_solution(self):
+  def __random_point(self, other_individual):
+    crossover_point = random.randrange(0, len(self.__items), 1)
+    chromossomes2 = other_individual.get_chromossomes()
+
+    c1 = self.mutation(self.__chromossomes[:crossover_point] + chromossomes2[crossover_point:])
+    c2 = self.mutation(chromossomes2[:crossover_point] + self.__chromossomes[crossover_point:])
+
+    return c1, c2
+
+  def __four_points(self, other_individual):
+    points = sorted(random.sample(range(len(self.__items)), 4))
+    chromossomes2 = other_individual.get_chromossomes()
+
+    c1 = self.mutation(self.__chromossomes[:points[0]] +
+                       chromossomes2[points[0]:points[1]] +
+                       self.__chromossomes[points[1]:points[2]] +
+                       chromossomes2[points[2]:points[3]] +
+                       self.__chromossomes[points[3]:])
+
+    c2 = self.mutation(chromossomes2[:points[0]] +
+                       self.__chromossomes[points[0]:points[1]] +
+                       chromossomes2[points[1]:points[2]] +
+                       self.__chromossomes[points[2]:points[3]] +
+                       chromossomes2[points[3]:])
+    
+    return c1, c2
