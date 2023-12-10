@@ -1,0 +1,19 @@
+Gestão de erros - Feedback de ação
+
+Consistência - Todas telas seguem o mesmo padrão
+
+Presteza - Feedback constante, mascara
+
+Agrupamento, Agrupamento por localização - Menu e submenu
+
+Feedback imediato
+
+Legibilidade, Consição, Ações Explicitas - Todas seções bem separadas e com facil entendimento pelo titulo no topo.
+
+Presteza - Todos campos terão mascara como citado no requisito, titulos claros para as telas
+
+Concisão, Ações Mínimas - Mascara em campos
+
+Ações Mínimas - Botões indicativos
+
+Densidade informacional - Dashboards divididos, tabelas bem separadas com filtros, PAGINAÇÃO
